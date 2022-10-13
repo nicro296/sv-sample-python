@@ -1,0 +1,72 @@
+import requests
+import pandas as pd
+import numpy as np
+import json
+from bs4 import BeautifulSoup as bs
+
+import Archetypes as Arches
+from Deck import Deck
+
+
+class JcgBracket:
+    bracket: dict
+    matches = []
+
+    def __init__(self, url_id:str):
+        url_groups  = 'https://sv.j-cg.com/competition/'+url_id+'/bracket#/1'
+        source = requests.get(url_groups).text
+        soup = bs(source, 'lxml')
+        allscr = soup.find_all('script')
+        tjson = allscr[7].text
+        cleanedjson = tjson[tjson.find('{"apiUrl":"'):]
+        self.bracket = json.loads(cleanedjson)
+    def get_group_ids(self):
+        group_ids = []
+        for group in self.bracket['groups']:
+            group_ids.append(group['id'])
+        return group_ids
+    def set_matches(self):
+        group_ids = self.get_group_ids()
+        for group_id in group_ids:
+            bracketjson = 'https://sv.j-cg.com/api/competition/group/' + geroup_cord
+            response = requests.get(bracketjson)
+            self.matches.append(response)
+
+class JcgEntry:
+    players = []
+    def __init__(self, url_id:str):
+        url_entries = 'https://sv.j-cg.com/competition/'+url_id+'/entries'
+        html = requests.get(url_entries)
+        soup = bs(html.content, "html.parser")
+        all_script = soup.find_all('script')
+        dljson = all_script[7].string
+        cleanedjson = dljson[dljson.find('list'):dljson.find('listFiltered')]
+        finaljson = cleanedjson.replace('list:','').strip()[:-1]
+        data = json.loads(finaljson)
+        for player in data:
+            self.players.append(JcgEntryPlayer(player))
+    def get_player(self,player_id):
+        for player in self.players:
+            if player_id == player.player_id:
+                return player
+        raise Exception('dont find player_id')
+
+class JcgEntryPlayer:
+    player_name:str
+    player_id:int
+    username:int
+    nicename:str
+    result:int
+    decks = []
+
+    def __init__(self,player):
+        self.player_name = player['name']
+        self.player_id = player['id']
+        self.username = int(player['username'])
+        self.nicename = player['nicename']
+        self.result = player['result']
+        self.decks = []
+        for sv_deck in player['sv_decks']:
+            deck = Deck(clan=sv_deck['clan'],hash=sv_deck['hash'])
+            deck.set_archetype()
+            self.decks.append(deck)
