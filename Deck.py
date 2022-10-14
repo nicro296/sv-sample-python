@@ -3,8 +3,6 @@ import Archetype
 
 class Deck:
     '''
-    parameters
-    ----------
     clan : int
         shadowverse leader class number
         1 : ForestCraft
@@ -15,16 +13,21 @@ class Deck:
     codes : list[str]
         list of 64-digit card codes in deck
     archetype_name : str
+
+    parameters
+    ----------
+    deck-url : str
+    clan : int
+    hash : str
+
+    you can use this class with deck-url or clan & hash
+    For example
+        Deck(clan=1,hash="3.1.5zvAY.5zvAY.5zvAY./~ ~/.5zxco.5zxco.5zxco")
+        Deck(deck_url="https://shadowverse-portal.com/deck/3.1.5zvAY.5zvAY.5zvAY./~ ~/.5zxco.5zxco.5zxco?lang=ja")
+        Deck(deck_url="https://shadowverse-portal.com/deckbuilder/create/1?hash=3.1.5zvAY.5zvAY.5zvAY./~ ~/.5zxco.5zxco.5zxco?lang=ja")
     '''
     
     def __init__(self, deck_url=None ,clan=None, hash=None):
-        '''
-        you can use deck-url or hash & clan
-        For example,
-            Deck(clan=1,hash="3.1.5zvAY.5zvAY.5zvAY./~ ~/.5zxco.5zxco.5zxco")
-            Deck(deck_url="https://shadowverse-portal.com/deck/3.1.5zvAY.5zvAY.5zvAY./~ ~/.5zxco.5zxco.5zxco?lang=ja")
-            Deck(deck_url="https://shadowverse-portal.com/deckbuilder/create/1?hash=3.1.5zvAY.5zvAY.5zvAY./~ ~/.5zxco.5zxco.5zxco?lang=ja")
-        '''
         if(deck_url!= None):
             self.set_from_deckurl(deck_url)
             return
