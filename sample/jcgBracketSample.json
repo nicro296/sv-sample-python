@@ -1,0 +1,297 @@
+{
+    "apiUrl": "https://sv.j-cg.com/api",
+    "bracket": {
+        "third_place": false,
+        "id": 5729,
+        "type": "TOUR",
+        "sioName": "76062760-4a0c-11ed-8416-5fe2e434191d"
+    },
+    "groups": [
+        {
+            "id": 142097,
+            "code": "1",
+            "name": "\u30b0\u30eb\u30fc\u30d701",
+            "rounds": [],
+            "sioName": "75ee3cd0-4a0c-11ed-9e3f-0dd9e548c2e3"
+        },
+        {
+            "id": 142098,
+            "code": "2",
+            "name": "\u30b0\u30eb\u30fc\u30d702",
+            "rounds": [],
+            "sioName": "75f0ac50-4a0c-11ed-9523-39dca19b693e"
+        },
+        {
+            "id": 142099,
+            "code": "3",
+            "name": "\u30b0\u30eb\u30fc\u30d703",
+            "rounds": [],
+            "sioName": "75f1f210-4a0c-11ed-a962-e1be11fea1ca"
+        },
+        {
+            "id": 142100,
+            "code": "4",
+            "name": "\u30b0\u30eb\u30fc\u30d704",
+            "rounds": [],
+            "sioName": "75f35b10-4a0c-11ed-ae69-79470bde5357"
+        },
+        {
+            "id": 142101,
+            "code": "5",
+            "name": "\u30b0\u30eb\u30fc\u30d705",
+            "rounds": [],
+            "sioName": "75f52820-4a0c-11ed-8c72-11f7476811c9"
+        },
+        {
+            "id": 142102,
+            "code": "6",
+            "name": "\u30b0\u30eb\u30fc\u30d706",
+            "rounds": [],
+            "sioName": "75f6b230-4a0c-11ed-aad1-e3196384d362"
+        },
+        {
+            "id": 142103,
+            "code": "7",
+            "name": "\u30b0\u30eb\u30fc\u30d707",
+            "rounds": [],
+            "sioName": "75f83dc0-4a0c-11ed-89d5-6d068a14b7d5"
+        },
+        {
+            "id": 142104,
+            "code": "8",
+            "name": "\u30b0\u30eb\u30fc\u30d708",
+            "rounds": [],
+            "sioName": "75fa3eb0-4a0c-11ed-908b-43d17278f876"
+        },
+        {
+            "id": 142105,
+            "code": "9",
+            "name": "\u30b0\u30eb\u30fc\u30d709",
+            "rounds": [],
+            "sioName": "75fb9e60-4a0c-11ed-9a9e-f94a3614ea13"
+        },
+        {
+            "id": 142106,
+            "code": "10",
+            "name": "\u30b0\u30eb\u30fc\u30d710",
+            "rounds": [],
+            "sioName": "75fc91c0-4a0c-11ed-b674-cb9d84ce10d8"
+        },
+        {
+            "id": 142107,
+            "code": "11",
+            "name": "\u30b0\u30eb\u30fc\u30d711",
+            "rounds": [],
+            "sioName": "75fd9030-4a0c-11ed-bf16-b93ef480692e"
+        },
+        {
+            "id": 142108,
+            "code": "12",
+            "name": "\u30b0\u30eb\u30fc\u30d712",
+            "rounds": [],
+            "sioName": "75fe7570-4a0c-11ed-beca-99f687deea19"
+        },
+        {
+            "id": 142109,
+            "code": "13",
+            "name": "\u30b0\u30eb\u30fc\u30d713",
+            "rounds": [],
+            "sioName": "75ff4a80-4a0c-11ed-91f8-ff6bbd80dfe3"
+        },
+        {
+            "id": 142110,
+            "code": "14",
+            "name": "\u30b0\u30eb\u30fc\u30d714",
+            "rounds": [],
+            "sioName": "760045d0-4a0c-11ed-97a3-61b848841f92"
+        },
+        {
+            "id": 142111,
+            "code": "15",
+            "name": "\u30b0\u30eb\u30fc\u30d715",
+            "rounds": [],
+            "sioName": "76024840-4a0c-11ed-b0e2-59e82f1bb687"
+        },
+        {
+            "id": 142112,
+            "code": "16",
+            "name": "\u30b0\u30eb\u30fc\u30d716",
+            "rounds": [],
+            "sioName": "76038c60-4a0c-11ed-ad4c-39535b587dd6"
+        }
+    ],
+    "myUsername": "",
+    "myTeamId": 0,
+    "myGroupCode": "",
+    "isa": false,
+    "settings": {
+        "competitionName": "JCG Shadowverse Open 23rd Season Vol.9 10\u670812\u65e5 \u30ed\u30fc\u30c6\u30fc\u30b7\u30e7\u30f3\u5927\u4f1a \u30b0\u30eb\u30fc\u30d7\u4e88\u9078",
+        "appName": "october_sv_live",
+        "baseUrl": "https://sv.j-cg.com/",
+        "websockUrl": "https://sv.j-cg.com:3001/",
+        "useCompassBattleScore": false,
+        "useMatchRoom": true,
+        "useScore": false,
+        "useScreenShot": false,
+        "bracketGroupsVisibility": true,
+        "labelScore": "\u30b9\u30b3\u30a2",
+        "useMapkick": false,
+        "participantType": "SOLO",
+        "matchDescription": "<div class=\"cgStyleCMS\">\n<p>\u30c8\u30fc\u30ca\u30e1\u30f3\u30c8\u4e0a\u306e\u4e0a\u5074\u3001\u3082\u3057\u304f\u306f\u5bfe\u6226\u30da\u30fc\u30b8\u306e\u5de6\u5074\u304c\u30db\u30b9\u30c8\u3068\u306a\u308a\u3001\u30eb\u30fc\u30e0\u3092\u4f5c\u6210\u3057\u307e\u3059\u3002</p>\n<ul>\n<li>\u30db\u30b9\u30c8\u306f\u30eb\u30fc\u30e0\u3092\u4f5c\u6210\u3057\u305f\u3089\u3001\u672c\u30da\u30fc\u30b8\u4e0a\u90e8\u306e\u5165\u529b\u30c1\u30e3\u30c3\u30c8\u3067\u5bfe\u6226\u76f8\u624b\u306b\u30eb\u30fc\u30e0ID\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044\u3002</li>\n<li>\u30eb\u30fc\u30eb\u4e0a\u306e\u6642\u9593\u5185\u306b\u30eb\u30fc\u30e0ID\u306e\u8a18\u8f09\u304c\u306a\u304b\u3063\u305f\u3089\u3001Discord\u306e\u30c1\u30e3\u30c3\u30c8\u3067\u904b\u55b6\u306b\u5831\u544a\u3057\u3066\u304f\u3060\u3055\u3044\u3002</li>\n<li>Discord\u4e0a\u3067\u9023\u7d61\u304c\u306a\u304b\u3063\u305f\u5834\u5408\u3001\u4e0d\u6226\u6557\u3068\u3057\u3066\u6271\u3046\u5834\u5408\u304c\u3042\u308a\u307e\u3059\u3002</li>\n<li>\u5927\u4f1a\u4e2d\u30c8\u30e9\u30d6\u30eb\u304c\u767a\u751f\u3057\u305f\u5834\u5408\u3001\u30b9\u30af\u30ea\u30fc\u30f3\u30b7\u30e7\u30c3\u30c8\u3092\u63d0\u793a\u3059\u308b\u5834\u5408\u304c\u3042\u308a\u307e\u3059\u3002</li>\n<li>\u30c8\u30e9\u30d6\u30eb\u767a\u751f\u6642\u306b\u5bfe\u6226\u76f8\u624b\u540d\u304c\u5206\u304b\u308b\u5f62\u3067\u53d6\u5f97\u3057\u3066\u304a\u3044\u3066\u304f\u3060\u3055\u3044\u3002</li>\n</ul>\n</div>",
+        "useSegment": 0,
+        "useGroupNameOnSelection": false,
+        "segmentDesc": null,
+        "segmentFinalChar": null,
+        "discordChannels": [
+            {
+                "groupCode": null,
+                "blockId": 1,
+                "name": "#\u30b0\u30eb\u30fc\u30d71",
+                "url": "https://discord.gg/qgvHMjx"
+            },
+            {
+                "groupCode": null,
+                "blockId": 2,
+                "name": "#\u30b0\u30eb\u30fc\u30d72",
+                "url": "https://discord.gg/9FsxHfW"
+            },
+            {
+                "groupCode": null,
+                "blockId": 3,
+                "name": "#\u30b0\u30eb\u30fc\u30d73",
+                "url": "https://discord.gg/k5Frhwt"
+            },
+            {
+                "groupCode": null,
+                "blockId": 4,
+                "name": "#\u30b0\u30eb\u30fc\u30d74",
+                "url": "https://discord.gg/Q4F8rmy"
+            },
+            {
+                "groupCode": null,
+                "blockId": 5,
+                "name": "#\u30b0\u30eb\u30fc\u30d75",
+                "url": "https://discord.gg/39S7cVd"
+            },
+            {
+                "groupCode": null,
+                "blockId": 6,
+                "name": "#\u30b0\u30eb\u30fc\u30d76",
+                "url": "https://discord.gg/ZXaegwN"
+            },
+            {
+                "groupCode": null,
+                "blockId": 7,
+                "name": "#\u30b0\u30eb\u30fc\u30d77",
+                "url": "https://discord.gg/jvw8JMK"
+            },
+            {
+                "groupCode": null,
+                "blockId": 8,
+                "name": "#\u30b0\u30eb\u30fc\u30d78",
+                "url": "https://discord.gg/NzcPkV4"
+            },
+            {
+                "groupCode": null,
+                "blockId": 9,
+                "name": "#\u30b0\u30eb\u30fc\u30d79",
+                "url": "https://discord.gg/Qax93kh"
+            },
+            {
+                "groupCode": null,
+                "blockId": 10,
+                "name": "#\u30b0\u30eb\u30fc\u30d710",
+                "url": "https://discord.gg/nMWtfR7"
+            },
+            {
+                "groupCode": null,
+                "blockId": 11,
+                "name": "#\u30b0\u30eb\u30fc\u30d711",
+                "url": "https://discord.gg/n5fRWdN"
+            },
+            {
+                "groupCode": null,
+                "blockId": 12,
+                "name": "#\u30b0\u30eb\u30fc\u30d712",
+                "url": "https://discord.gg/vEnhH3x"
+            },
+            {
+                "groupCode": null,
+                "blockId": 13,
+                "name": "#\u30b0\u30eb\u30fc\u30d713",
+                "url": "https://discord.gg/j4TaU5Q"
+            },
+            {
+                "groupCode": null,
+                "blockId": 14,
+                "name": "#\u30b0\u30eb\u30fc\u30d714",
+                "url": "https://discord.gg/yK88svp"
+            },
+            {
+                "groupCode": null,
+                "blockId": 15,
+                "name": "#\u30b0\u30eb\u30fc\u30d715",
+                "url": "https://discord.gg/nhWyARV"
+            },
+            {
+                "groupCode": null,
+                "blockId": 16,
+                "name": "#\u30b0\u30eb\u30fc\u30d716",
+                "url": "https://discord.gg/ZvyK8ut"
+            }
+        ],
+        "defaultDiscordChannel": {
+            "name": "#general",
+            "url": null
+        },
+        "labelGameId": "Shadowverse\u5185 \u30b2\u30fc\u30e0ID",
+        "csrfToken": "S7xfZax4z3KvV7n8NNP6sO6H4vzqP1Z6IgCX51wE",
+        "competitionFinished": null,
+        "needDiscordDeclaration": false,
+        "individualMatch": false,
+        "matchFormat": "general",
+        "svClans": [
+            {
+                "id": 1,
+                "name": "\u30a8\u30eb\u30d5",
+                "icon": "https://d2ix66na9gnh44.cloudfront.net/storage/app/media/clan/icons/1.png"
+            },
+            {
+                "id": 2,
+                "name": "\u30ed\u30a4\u30e4\u30eb",
+                "icon": "https://d2ix66na9gnh44.cloudfront.net/storage/app/media/clan/icons/2.png"
+            },
+            {
+                "id": 3,
+                "name": "\u30a6\u30a3\u30c3\u30c1",
+                "icon": "https://d2ix66na9gnh44.cloudfront.net/storage/app/media/clan/icons/3.png"
+            },
+            {
+                "id": 4,
+                "name": "\u30c9\u30e9\u30b4\u30f3",
+                "icon": "https://d2ix66na9gnh44.cloudfront.net/storage/app/media/clan/icons/4.png"
+            },
+            {
+                "id": 5,
+                "name": "\u30cd\u30af\u30ed\u30de\u30f3\u30b5\u30fc",
+                "icon": "https://d2ix66na9gnh44.cloudfront.net/storage/app/media/clan/icons/5.png"
+            },
+            {
+                "id": 6,
+                "name": "\u30f4\u30a1\u30f3\u30d1\u30a4\u30a2",
+                "icon": "https://d2ix66na9gnh44.cloudfront.net/storage/app/media/clan/icons/6.png"
+            },
+            {
+                "id": 7,
+                "name": "\u30d3\u30b7\u30e7\u30c3\u30d7",
+                "icon": "https://d2ix66na9gnh44.cloudfront.net/storage/app/media/clan/icons/7.png"
+            },
+            {
+                "id": 8,
+                "name": "\u30cd\u30e1\u30b7\u30b9",
+                "icon": "https://d2ix66na9gnh44.cloudfront.net/storage/app/media/clan/icons/8.png"
+            }
+        ],
+        "renderer": ""
+    }
+}

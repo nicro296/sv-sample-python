@@ -2,9 +2,20 @@ import Archetypes as Arches
 import Archetype
 
 class Deck:
-    clan:int
-    archetype_name:str = None
-    codes = []
+    '''
+    parameters
+    ----------
+    clan : int
+        shadowverse leader class number
+        1 : ForestCraft
+        2 : SwordCraft
+        ...
+        8 : PortalCraft
+        (0 : Neutral)
+    codes : list[str]
+        list of 64-digit card codes in deck
+    archetype_name : str
+    '''
     
     def __init__(self, deck_url=None ,clan=None, hash=None):
         '''
@@ -36,15 +47,17 @@ class Deck:
     def set_from_clan_hash(self,clan,hash):
         self.clan = clan
         self.codes = hash[4:].split('.')
-    '''
-        need to 'import Archetypes as Arches'
-    '''
     def set_archetype(self):
+        '''
+        need to 'import Archetypes as Arches'
+        '''
         for archetype in Arches.archetypes:
             if archetype.clan != self.clan:
                 continue
             if archetype.is_valid_deck(self):
                 self.archetype_name = archetype.archetype_name
                 return
+        # If there is no suitable archetype, name it 'Unclassified'
+        self.archetype_name = 'Unclassified'
 
 

@@ -1,3 +1,6 @@
+'''
+    アーキタイプの情報をセットする用
+'''
 from Archetype import Archetype
 
 archetypes = []
