@@ -187,18 +187,18 @@ class JcgEntryPlayer:
         return vars(output)
 
 
-tournament_id = 'vsySSXEFrxP1'
-jcgBracket = JcgBracket(tournament_id)
+# tournament_id = 'vsySSXEFrxP1'
+# jcgBracket = JcgBracket(tournament_id)
 
-with open('sample/jcgBracketSample.json', 'w', encoding='utf-8') as f:
-    jb = json.dumps(jcgBracket.bracket)
-    print(jb, file=f)
+# with open('sample/jcgBracketSample.json', 'w', encoding='utf-8') as f:
+#     jb = json.dumps(jcgBracket.bracket)
+#     print(jb, file=f)
 
-jcgBracket.set_matches()
-with open('sample/jcgBracketMatchSample.json' ,'w', encoding='utf-8') as f:
-    jb = json.dumps(jcgBracket.matches)
-    print(jb, file=f)
+# jcgBracket.set_matches()
+# with open('sample/jcgBracketMatchSample.json' ,'w', encoding='utf-8') as f:
+#     jb = json.dumps(jcgBracket.matches)
+#     print(jb, file=f)
 
-jcgEntry = JcgEntry(tournament_id)
-jcgEntry.set_archetype()
-jcgEntry.write_json('sample/playersInJcgEntrySample.json')
+# jcgEntry = JcgEntry(tournament_id)
+# jcgEntry.set_archetype()
+# jcgEntry.write_json('sample/playersInJcgEntrySample.json')
