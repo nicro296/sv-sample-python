@@ -5,8 +5,9 @@ import json
 import copy
 import datetime
 import openpyxl
-from openpyxl.styles.alignment import Alignment
 from bs4 import BeautifulSoup as bs
+from openpyxl.styles.alignment import Alignment
+from openpyxl.formatting.rule import ColorScaleRule, FormulaRule
 
 import Archetypes as Arches
 from Deck import Deck
@@ -210,7 +211,12 @@ class JcgEntryPlayer:
 
 #分析パート 用意できていないので無理矢理くっつけておく
 
+url_id = 'vsySSXEFrxP1'
 dt_now = datetime.datetime.now()
+rule = ColorScaleRule(start_type='min', start_value=None, start_color='0000FF',
+                        mid_type='percentile', mid_value=50, mid_color='FFFFFF',
+                        end_type='max', end_value=None, end_color='FF0000')
+
 Arch_Name = [
     [
         'テンポエルフ',
@@ -257,6 +263,7 @@ DATA = [
     [[],[]]  # arche_A,arche_B
     ]
 Head = ['デッキ1','デッキ２','勝率','データ数']
+Head_SUM = ['デッキ','総合勝率','データ数']
 
 class main():
     def make_DATA(self):
@@ -282,8 +289,12 @@ class main():
     def anal(self):
         ANL_DATA = ([],[],[],[])
         sum_win = 0 
+        SUM_WIN = 0
         sum_lose = 0
+        SUM_LOSE = 0
+        SUM_Data = ([],[],[])
         n = 0
+        sum_n = 0
         wb = openpyxl.Workbook()
         for i in range(1,9):
             for k in range(len(Arch_Name[i-1])):
@@ -304,7 +315,23 @@ class main():
                         if sum_win == 0:
                             ANL_DATA[2].append(0)
                         else:
-                            ANL_DATA[2].append(100*sum_win/(sum_win+sum_lose))
+                            ANL_DATA[2].append(round(100*sum_win/(sum_win+sum_lose),2))
+                        SUM_WIN = SUM_WIN + sum_win 
+                        SUM_LOSE = SUM_LOSE + sum_lose
+                        sum_n = sum_n + n
+                        sum_win = 0 
+                        sum_lose = 0
+                        n = 0
+                SUM_Data[0].append(Arch_Name[i-1][k])
+                if SUM_WIN == 0:
+                    SUM_Data[1].append(0)
+                else:
+                    SUM_Data[1].append(round(100*SUM_WIN/(SUM_WIN+SUM_LOSE), 2))
+                
+                SUM_Data[2].append(round(sum_n))
+                SUM_LOSE = 0
+                SUM_WIN = 0
+                sum_n = 0
                 sheet = wb.create_sheet(ANL_DATA[0][0])
                 SR = 2
                 SC = 1
@@ -314,32 +341,56 @@ class main():
                         row = 1,
                         column = I + 1 ,
                         value = Head[I]
-                        # horizontal = "center"
                     ) 
                 for I in range(len(ANL_DATA)):
                     for J in range(len(ANL_DATA[0])):
                         sheet.cell(
                             row = SR + J,
                             column = SC + I,
-                            value = ANL_DATA[I][J] #,
-                            # horizontal = "center"
+                            value = ANL_DATA[I][J] 
                             )
                 for row in sheet:
                     for cell in row:
                         cell.alignment = Alignment(horizontal = 'center')
                 sheet.column_dimensions['A'].width = 25
                 sheet.column_dimensions['B'].width = 25
-                sum_win = 0 
-                sum_lose = 0
-                n = 0
+                sheet.conditional_formatting.add('C2:C17', rule)
                 ANL_DATA = ([],[],[],[])
+        ws = wb["Sheet"]
+        for I in range(len(Head_SUM)):
+            ws.cell(
+                row = 1,
+                column = I + 1 ,
+                value = Head_SUM[I]
+            ) 
+        for i in range(len(SUM_Data[0])):
+            ws.cell(
+                row = 2 + i,
+                column = 1,
+                value = SUM_Data[0][i]
+                )
+            ws.cell(
+                row = 2 + i,
+                column = 2,
+                value = SUM_Data[1][i]
+                )
+            ws.cell(
+                row = 2 + i,
+                column = 3,
+                value = SUM_Data[2][i]
+                )
+        ws.column_dimensions['A'].width = 25
+        ws.column_dimensions['B'].width = 25
+        for row in ws:
+            for cell in row:
+                cell.alignment = Alignment(horizontal = 'center')
+        ws.conditional_formatting.add('B2:B17', rule)
         wb = wb.save(str(dt_now.year)+str(dt_now.month).zfill(2)+str(dt_now.day).zfill(2)+'勝率.xlsx')
 
     def __main__(self):
-        tournament_id = 'vsySSXEFrxP1'
-        self.jcgBracket = JcgBracket(tournament_id)
+        self.jcgBracket = JcgBracket(url_id)
         self.jcgBracket.set_matches()
-        self.jcgEntry = JcgEntry(tournament_id)
+        self.jcgEntry = JcgEntry(url_id)
         self.jcgEntry.set_archetype()
         main.make_DATA()
         main.anal()
