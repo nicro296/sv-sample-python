@@ -211,7 +211,7 @@ class JcgEntryPlayer:
 
 #分析パート 用意できていないので無理矢理くっつけておく
 
-url_id = 'vsySSXEFrxP1'
+url_id = 'pvoF9tIfML42'
 dt_now = datetime.datetime.now()
 rule = ColorScaleRule(start_type='min', start_value=None, start_color='0000FF',
                         mid_type='percentile', mid_value=50, mid_color='FFFFFF',
@@ -262,6 +262,21 @@ DATA = [
     [[],[]], # WIN, LOSE
     [[],[]]  # arche_A,arche_B
     ]
+'''
+#DATA[
+    クラス情報:[
+        対戦プレイヤーi(i=0or1):[j個目のデッキ]
+    ]
+,
+    勝ち数情報:[
+        対戦プレイヤーi(i=0or1):[j個目のデッキ]
+    ]
+,
+    アーキタイプ番号情報:[
+        対戦プレイヤーi(i=0or1):[j個目のデッキ]
+    ]
+]
+'''
 Head = ['デッキ1','デッキ２','勝率','データ数']
 Head_SUM = ['デッキ','総合勝率','データ数']
 
@@ -270,38 +285,68 @@ class main():
         for match in self.jcgBracket.matches:
             for _round in match['rounds']: 
                 for round_match in _round['matches']:
-                    for i in range(2):
+                    for i in range(2): # i人目のデッキ
                         win = round_match['teams'][i]['wins']
                         player_id = round_match['teams'][i]['users'][0]['username']
                         player = self.jcgEntry.get_player(player_id)
-                        DATA[0][i].append(player.decks[0].clan)
-                        DATA[0][i].append(player.decks[0].clan)
-                        DATA[0][i].append(player.decks[1].clan)
-                        DATA[0][i].append(player.decks[1].clan)
-                        DATA[1][i].append(win)
-                        DATA[1][i].append(win)
-                        DATA[1][i].append(win)
-                        DATA[1][i].append(win)
-                        DATA[2][i].append(get_archetype_index(player.decks[0]))
-                        DATA[2][i].append(get_archetype_index(player.decks[0]))
-                        DATA[2][i].append(get_archetype_index(player.decks[1]))
-                        DATA[2][i].append(get_archetype_index(player.decks[1]))
+                        if i == 0:
+                            DATA[0][i].append(player.decks[0].clan)
+                            DATA[0][i].append(player.decks[0].clan)
+                            DATA[0][i].append(player.decks[1].clan)
+                            DATA[0][i].append(player.decks[1].clan)
+                            DATA[1][i].append(win)
+                            DATA[1][i].append(win)
+                            DATA[1][i].append(win)
+                            DATA[1][i].append(win)
+                            DATA[2][i].append(get_archetype_index(player.decks[0]))
+                            DATA[2][i].append(get_archetype_index(player.decks[0]))
+                            DATA[2][i].append(get_archetype_index(player.decks[1]))
+                            DATA[2][i].append(get_archetype_index(player.decks[1]))
+                        if i == 1:
+                            DATA[0][i].append(player.decks[0].clan)
+                            DATA[0][i].append(player.decks[1].clan)
+                            DATA[0][i].append(player.decks[0].clan)
+                            DATA[0][i].append(player.decks[1].clan)
+                            DATA[1][i].append(win)
+                            DATA[1][i].append(win)
+                            DATA[1][i].append(win)
+                            DATA[1][i].append(win)
+                            DATA[2][i].append(get_archetype_index(player.decks[0]))
+                            DATA[2][i].append(get_archetype_index(player.decks[1]))
+                            DATA[2][i].append(get_archetype_index(player.decks[0]))
+                            DATA[2][i].append(get_archetype_index(player.decks[1]))
+
     def anal(self):
         ANL_DATA = ([],[],[],[])
+        '''
+        ANL_DATA = (
+            デッキAのクラス:[],
+            デッキBのクラス:[],
+            勝率:[],
+            デッキ数カウント:[]
+        )
+        '''
         sum_win = 0 
         SUM_WIN = 0
         sum_lose = 0
         SUM_LOSE = 0
         SUM_Data = ([],[],[])
+        '''
+        SUM_Data = (
+            アーキタイプ名:[],
+            勝率:[],
+            デッキ数カウント:[]
+        )
+        '''
         n = 0
         sum_n = 0
         wb = openpyxl.Workbook()
-        for i in range(1,9):
-            for k in range(len(Arch_Name[i-1])):
-                for j in range(1,9):
-                    for K in range(len(Arch_Name[j-1])):
-                        for N in range(len(DATA[0][0])):
-                            if DATA[0][0][N] == i and DATA[0][1][N] == j and DATA[2][0][N] == k and DATA[2][1][N] == K:
+        for i in range(1,9): #デッキAのクラス
+            for k in range(len(Arch_Name[i-1])): #デッキAのアーキタイプ 
+                for j in range(1,9): #デッキBのクラス
+                    for K in range(len(Arch_Name[j-1])): #デッキBのアーキタイプ
+                        for N in range(len(DATA[0][0])): #N個目の
+                            if DATA[0][0][N] == i and DATA[0][1][N] == j and DATA[2][0][N] == k and DATA[2][1][N] == K:#デッキとアーキタイプの照合
                                 n = n + 1
                                 sum_win = sum_win + int(DATA[1][0][N])
                                 sum_lose = sum_lose + int(DATA[1][1][N])
@@ -315,10 +360,11 @@ class main():
                         if sum_win == 0:
                             ANL_DATA[2].append(0)
                         else:
-                            ANL_DATA[2].append(round(100*sum_win/(sum_win+sum_lose),2))
+                            ANL_DATA[2].append(round(100*sum_win/(sum_win+sum_lose),2)) #少数2桁
                         SUM_WIN = SUM_WIN + sum_win 
                         SUM_LOSE = SUM_LOSE + sum_lose
                         sum_n = sum_n + n
+                        #変数の初期化 sum_win,sum_lose,n
                         sum_win = 0 
                         sum_lose = 0
                         n = 0
@@ -329,9 +375,11 @@ class main():
                     SUM_Data[1].append(round(100*SUM_WIN/(SUM_WIN+SUM_LOSE), 2))
                 
                 SUM_Data[2].append(round(sum_n))
+                #変数の初期化 SUM_LOSE,SUM_WIN,sum_n
                 SUM_LOSE = 0
                 SUM_WIN = 0
                 sum_n = 0
+                #出力
                 sheet = wb.create_sheet(ANL_DATA[0][0])
                 SR = 2
                 SC = 1
@@ -355,6 +403,7 @@ class main():
                 sheet.column_dimensions['A'].width = 25
                 sheet.column_dimensions['B'].width = 25
                 sheet.conditional_formatting.add('C2:C17', rule)
+                #初期化
                 ANL_DATA = ([],[],[],[])
         ws = wb["Sheet"]
         for I in range(len(Head_SUM)):
