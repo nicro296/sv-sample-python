@@ -11,6 +11,8 @@ from openpyxl.formatting.rule import ColorScaleRule, FormulaRule
 
 import Archetypes as Arches
 from Deck import Deck
+from Matchup import Matchups
+from Matchup import MatchupsXlsx
 
 
 class JcgBracket:
@@ -263,15 +265,13 @@ DATA = [
     [[],[]]  # arche_A,arche_B
     ]
 '''
-#DATA[
+DATA[
     クラス情報:[
         対戦プレイヤーi(i=0or1):[j個目のデッキ]
-    ]
-,
+    ],
     勝ち数情報:[
         対戦プレイヤーi(i=0or1):[j個目のデッキ]
-    ]
-,
+    ],
     アーキタイプ番号情報:[
         対戦プレイヤーi(i=0or1):[j個目のデッキ]
     ]
