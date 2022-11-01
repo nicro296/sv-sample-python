@@ -122,11 +122,11 @@ class JcgEntry:
         data = json.loads(finaljson)
         for player in data:
             self.players.append(JcgEntryPlayer(player))
-    def get_player(self,player_id):
+    def get_player(self,username):
         for jcgEntryPlayer in self.players:
-            if int(player_id) == jcgEntryPlayer.username:
+            if int(username) == jcgEntryPlayer.username:
                 return jcgEntryPlayer
-        raise Exception('dont find player_id')
+        raise Exception('dont find username')
     def write_json(self,file_uri):
         output = {'players':[]}
         for jcgEntryPlayer in self.players:
