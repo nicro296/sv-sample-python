@@ -11,8 +11,8 @@ from openpyxl.formatting.rule import ColorScaleRule, FormulaRule
 
 import Archetypes as Arches
 from Deck import Deck
-from Matchup import Matchups
-from Matchup import MatchupsXlsx
+from JcgMatchups import Matchups
+from JcgMatchups import MatchupsXlsx
 
 
 class JcgBracket:
