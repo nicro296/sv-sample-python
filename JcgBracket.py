@@ -316,28 +316,26 @@ class main():
                             DATA[2][i].append(get_archetype_index(player.decks[1]))
                             DATA[2][i].append(get_archetype_index(player.decks[0]))
                             DATA[2][i].append(get_archetype_index(player.decks[1]))
+    '''
+    '''
     def anal(self):
         ANL_DATA = ([],[],[],[])
-        '''
-        ANL_DATA = (
-            デッキAのクラス:[],
-            デッキBのクラス:[],
-            勝率:[],
-            デッキ数カウント:[]
-        )
-        '''
+        #ANL_DATA = (
+        #    デッキAのクラス:[],
+        #    デッキBのクラス:[],
+        #    勝率:[],
+        #    デッキ数カウント:[]
+        #)
         sum_win = 0 
         SUM_WIN = 0
         sum_lose = 0
         SUM_LOSE = 0
         SUM_Data = ([],[],[])
-        '''
-        SUM_Data = (
-            アーキタイプ名:[],
-            勝率:[],
-            デッキ数カウント:[]
-        )
-        '''
+        #SUM_Data = (
+        #    アーキタイプ名:[],
+        #    勝率:[],
+        #    デッキ数カウント:[]
+        #)
         n = 0
         sum_n = 0
         wb = openpyxl.Workbook()
