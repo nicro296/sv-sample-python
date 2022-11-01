@@ -281,6 +281,7 @@ Head = ['デッキ1','デッキ２','勝率','データ数']
 Head_SUM = ['デッキ','総合勝率','データ数']
 
 class main():
+    '''
     def make_DATA(self):
         for match in self.jcgBracket.matches:
             for _round in match['rounds']: 
@@ -315,7 +316,6 @@ class main():
                             DATA[2][i].append(get_archetype_index(player.decks[1]))
                             DATA[2][i].append(get_archetype_index(player.decks[0]))
                             DATA[2][i].append(get_archetype_index(player.decks[1]))
-
     def anal(self):
         ANL_DATA = ([],[],[],[])
         '''
@@ -435,14 +435,20 @@ class main():
                 cell.alignment = Alignment(horizontal = 'center')
         ws.conditional_formatting.add('B2:B17', rule)
         wb = wb.save(str(dt_now.year)+str(dt_now.month).zfill(2)+str(dt_now.day).zfill(2)+'勝率.xlsx')
-
+    '''
     def __main__(self):
         self.jcgBracket = JcgBracket(url_id)
         self.jcgBracket.set_matches()
         self.jcgEntry = JcgEntry(url_id)
         self.jcgEntry.set_archetype()
-        main.make_DATA()
-        main.anal()
+        # main.make_DATA()
+        # main.anal()
+        self.matchups = Matchups(Arches.archetypes)
+        self.matchups.set_count(self.jcgBracket,self.jcgEntry)
+        self.matchups_xlsx = MatchupsXlsx()
+        archetype_name = 'テンポエルフ'
+        self.matchups_xlsx.write_sheet(archetype_name, self.matchups.get_archetype_matchups(archetype_name))
+        self.matchups_xlsx.save()
 
 main = main()
 if __name__ == '__main__':
